@@ -45,7 +45,7 @@ Instructions (For local web server)
 
 
 ### Screenshot
-![Feed Reader Testing Screenshot](img\feedReaderTesting.png)
+![Feed Reader Testing Screenshot](img/feedReaderTesting.png)
 
 
 ## Contact / Social Media
