@@ -34,6 +34,7 @@ $(function() {
         it(' fees should have a URL defined and not empty', () => {
             allFeeds.forEach(feed => {
                 expect(feed.url).toBeDefined();
+                expect(feed.url.length).not.toBe(0);
             });
         });
 
@@ -45,6 +46,7 @@ $(function() {
         it('fees should have name define and not empty', () => {
             allFeeds.forEach(feed => {
                 expect(feed.name).toBeDefined();
+                expect(feed.name.length).not.toBe(0);
             });
         });
     });
@@ -64,7 +66,7 @@ $(function() {
 
         // assert...
         it('should be hidden by default', () => {
-            expect($(body).hasClass('menu-hidden')).toBe(true);
+            expect(body.hasClass('menu-hidden')).toBe(true);
         });
 
          /*
@@ -73,16 +75,16 @@ $(function() {
 
         it('should be visible when clicked and hidden when clicked again', () => {
             // act... trigger a click
-            $(menuIcon).click();
+            menuIcon.click();
 
             // assert...
-            expect($(body).hasClass('menu-hidden')).toBe(false);
+            expect(body.hasClass('menu-hidden')).toBe(false);
 
             // act... trigger a click again
-            $(menuIcon).click();
+            menuIcon.click();
 
             // assert...
-            expect($(body).hasClass('menu-hidden')).toBe(true);
+            expect(body.hasClass('menu-hidden')).toBe(true);
         });
 
     });
@@ -90,11 +92,12 @@ $(function() {
     describe('Initial Entries', () => {
 
         // arrange...
-        const feed = $('.feed .entry');
+        let entries;
 
         // act...
         beforeEach((done) =>{
             loadFeed(0, () => {
+                entries =  $('.feed .entry').length;
                 done();
             });
         });
@@ -105,7 +108,7 @@ $(function() {
 
         // assert...
         it('should load at least one entry', () => {
-            expect(feed.children.length > 0).toBe(true);
+            expect(entries).toBeGreaterThan(0);
         });
     });
 
@@ -118,9 +121,9 @@ $(function() {
         // act...
         beforeEach((done) =>{
             loadFeed(0, () => {
-                firstFeed = $(feed).html();
-                loadFeed(2, () => {
-                done();
+                firstFeed = feed.html();
+                loadFeed(1, () => {
+                    done();
             });
         });
      });
@@ -132,7 +135,7 @@ $(function() {
 
         // assert...
         it('should load a new feed and content should change', () => {
-            expect($(feed).html()).not.toEqual(firstFeed);
+            expect(feed.html()).not.toEqual(firstFeed);
         });
     });
 }());
