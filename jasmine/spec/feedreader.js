@@ -51,15 +51,15 @@ $(function() {
 
     /* DONE: Write a new test suite named "The menu" */
     describe('The menu', () => {
+        const body = $('body');
 
 
-        /* TODO: Write a test that ensures the menu element is
+        /* DONE: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
         it('should be hidden by default', () => {
-            $('menu-icon-link').click();
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
@@ -68,12 +68,21 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+        it('should be visible when clicked and hidden when clicked again', () => {
+            //trigger a click
+            $('.menu-icon-link').click();
+            expect($('body').hasClass('menu-hidden')).toBe(false);
+            //trigeer a click again
+            $('.menu-icon-link').click();
+            expect($('body').hasClass('menu-hidden')).toBe(true);
+        });
+
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', () => {
 
-
+        });
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
@@ -87,5 +96,5 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-    });
+    
 }());
