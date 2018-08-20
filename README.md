@@ -44,9 +44,9 @@ Instructions (For local web server)
 4. Visit http://localhost:8080 to view the application
 
 
-### Demo
-![Feed Reader Testing Screenshot](img\feedReaderTesting.png)
-[Feed Reader Testing TODO: fix link](https://javavista.github.io/Project-Classic-Arcade-Game/)
+### Screenshot
+![Feed Reader Testing Screenshot](img/feedReaderTesting.png)
+
 
 ## Contact / Social Media
 
